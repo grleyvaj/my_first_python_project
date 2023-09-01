@@ -1,0 +1,63 @@
+[tool.coverage.run]
+branch = true
+source = ["my_first_python_project", "tests"]
+
+[tool.coverage.report]
+exclude_lines = ['if TYPE_CHECKING:']
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-fail-under=100 --cov-report html:'build/coverage/apps/my_first_python_project/html' --cov-report xml:'build/coverage/apps/my_first_python_project/coverage.xml' --junitxml='build/reports/apps/my_first_python_project/unittests/junit.xml' --html='build/reports/apps/my_first_python_project/unittests/html/index.html' --cov-report term:skip-covered"
+pythonpath = ["my_first_python_project", "tests"]
+cache_dir = "build/.pytest_cache"
+
+[tool.poetry]
+name = "Your Project Name"
+version = "1.0.0"
+description = "Project Description"
+authors = ["Your Name"]
+license = 'Proprietary'
+readme = 'README.md'
+
+[tool.poetry.dependencies]
+python = "^3.10"
+uvicorn = "^0.23.2"
+typing-extensions = "^4.7.1"
+pydantic = "^2.2.1"
+pydantic-settings = "^2.0.3"
+python-dotenv = "^1.0.0"
+pytest-cov = "^4.1.0"
+pytest-env = "^1.0.0"
+pytest-html = "^3.1.1"
+pytest-sugar = "^0.9.5"
+ruff = "^0.0.285"
+numpy = "^1.25.2"
+pandas = "^2.0.3"
+fastparquet = "^2023.7.0"
+pytest-mock = "^3.11.1"
+httpx = "^0.24.1"
+coverage = "^7.3.0"
+ipykernel = "^6.25.1"
+pytest = "^7.4.0"
+fastapi = "^0.103.0"
+
+[tool.poetry.dev-dependencies]
+uvicorn = "^0.23.2"
+typing-extensions = "^4.7.1"
+pydantic = "^2.2.1"
+pydantic-settings = "^2.0.3"
+python-dotenv = "^1.0.0"
+pytest-cov = "^4.1.0"
+pytest-env = "^1.0.0"
+pytest-html = "^3.1.1"
+pytest-sugar = "^0.9.5"
+ruff = "^0.0.285"
+numpy = "^1.25.2"
+pandas = "^2.0.3"
+fastparquet = "^2023.7.0"
+pytest-mock = "^3.11.1"
+coverage = "^7.3.0"
+
+[build-system]
+requires = ["poetry-core==1.1.0"]
+build-backend = "poetry.core.masonry.api"

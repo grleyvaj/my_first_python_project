@@ -1,0 +1,35 @@
+{
+  "name": "my_first_python_project",
+  "version": "1.0.0",
+  "description": "My first python project with basic examples and my first api rest using fast api",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "postinstall": "poetry install",
+    "lint": "poetry run ruff check . --fix --config ruff.toml",
+    "test": "poetry run pytest",
+    "commit": "cz"
+  },
+  "author": "Gloria R.",
+  "license": "ISC",
+  "dependencies": {
+    "husky": "^8.0.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.0",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/cz-commitlint": "^17.7.0",
+    "commitizen": "^4.3.0",
+    "commitlint-config-gitmoji": "^2.3.1",
+    "cz-customizable": "^7.0.0",
+    "inquirer": "^8.2.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+    "name": "my_first_python_project",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "sourceRoot": "apps/my_first_python_project/my_first_python_project",
+    "targets": {
+        "docs": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "pydoc-markdown -p my_first_python_project --render-toc > docs/source/api.md",
+                "cwd": "apps/my_first_python_project"
+            }
+        },
+        "lock": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "poetry lock --no-update",
+                "cwd": "apps/my_first_python_project"
+            }
+        },
+        "add": {
+            "executor": "@hermes/python:add",
+            "options": {}
+        },
+        "update": {
+            "executor": "@hermes/python:update",
+            "options": {}
+        },
+        "remove": {
+            "executor": "@hermes/python:remove",
+            "options": {}
+        },
+        "build": {
+            "executor": "@hermes/python:build",
+            "outputs": ["{projectRoot}/dist"],
+            "options": {
+                "outputPath": "apps/my_first_python_project/dist",
+                "publish": true,
+                "lockedVersions": true,
+                "bundleLocalDependencies": true
+            }
+        },
+        "install": {
+            "executor": "@hermes/python:install",
+            "options": {
+                "silent": false,
+                "args": "",
+                "cacheDir": ".cache/pypoetry",
+                "verbose": false,
+                "debug": false
+            }
+        },
+        "lint": {
+            "executor": "@hermes/python:pylinter",
+            "options": {
+                "config": "../../tools/py-linters/.pre-commit-config.yaml",
+                "verbose": false
+            }
+        },
+        "test": {
+            "executor": "nx:run-commands",
+            "outputs": [
+                "{workspaceRoot}/dist/reports/apps/my_first_python_project/unittests",
+                "{workspaceRoot}/coverage/apps/my_first_python_project"
+            ],
+            "options": {
+                "command": "poetry run pytest tests/",
+                "cwd": "apps/my_first_python_project"
+            }
+        },
+        "tox": {
+            "executor": "@hermes/python:tox",
+            "outputs": [
+                "{workspaceRoot}/dist/reports/apps/my_first_python_project/unittests",
+                "{workspaceRoot}/dist/coverage/apps/my_first_python_project"
+            ],
+            "options": {
+                "silent": false,
+                "args": ""
+            }
+        }
+    },
+    "tags": []
+}
