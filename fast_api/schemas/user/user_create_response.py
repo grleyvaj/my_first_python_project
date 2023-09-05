@@ -1,6 +1,6 @@
 from pydantic import Field
 
-from my_fastapi.v1.schemas.user import UserCreateRequest
+from fast_api.schemas.user.user_create_request import UserCreateRequest
 
 
 class UserCreateResponse(UserCreateRequest):

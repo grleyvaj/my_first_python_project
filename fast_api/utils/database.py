@@ -3,7 +3,7 @@ from contextvars import ContextVar
 from fastapi import Depends
 from peewee import PostgresqlDatabase, _ConnectionState
 
-from my_fastapi.v1.utils.settings import Settings
+from fast_api.utils.settings import Settings
 
 settings = Settings()
 

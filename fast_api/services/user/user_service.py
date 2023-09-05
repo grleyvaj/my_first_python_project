@@ -1,5 +1,5 @@
-from my_fastapi.v1.model.user_model import User
-from my_fastapi.v1.schemas.user import UserCreateRequest
+from fast_api.model.user_model import User
+from fast_api.schemas.user.user_create_request import UserCreateRequest
 
 
 class UserService:

@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
-from my_fastapi.v1.model.user_model import User
-from my_fastapi.v1.routers.user_router import router as user_router
-from my_fastapi.v1.utils.database import db as connection
+from fast_api.model.user_model import User
+from fast_api.routers.user_router import router as user_router
+from fast_api.utils.database import db as connection
 
 app = FastAPI(
     title="My first API",

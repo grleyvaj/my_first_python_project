@@ -2,7 +2,7 @@ from datetime import datetime
 
 import peewee
 
-from my_fastapi.v1.utils.database import db
+from fast_api.utils.database import db
 
 from .user_model import User
 
