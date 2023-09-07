@@ -1,0 +1,5 @@
+{
+  "api.register.user_id.description": "User identifier in `UUID` format",
+  "api.register.role_id.description": "Role identifier in `UUID` format",
+  "api.register.datetime.description": "Created at"
+}

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Path
 from starlette import status
 
+from fast_api.documentation.Request import RegisterRequest
 from fast_api.schemas.user.user_create_request import UserCreateRequest
 from fast_api.schemas.user.user_create_response import UserCreateResponse
 from fast_api.schemas.user.user_create_response_mapper import UserCreateResponseMapper
@@ -12,7 +13,7 @@ user_create_response_mapper = UserCreateResponseMapper()
 user_service = UserService()
 
 
-@router.post(path="/api/v1/users", status_code=status.HTTP_201_CREATED, tags=["user"])
+@router.post(path="/api/v1/get", status_code=status.HTTP_201_CREATED, tags=["user"])
 async def create_user(user_request: UserCreateRequest) -> UserCreateResponse:
     user = user_service.create(user_request)
 
@@ -42,3 +43,8 @@ async def delete_user(user_id: int = Path(gt=0)) -> None:  # noqa: B008
         user_service.delete(user)
     else:
         raise HTTPException(404, "User not found")
+
+
+@router.post(path="/api/v1/users/register", status_code=status.HTTP_201_CREATED, tags=["user"])
+async def get(user_request: RegisterRequest) -> str:
+    return user_request.user_id
